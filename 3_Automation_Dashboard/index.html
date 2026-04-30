@@ -121,16 +121,32 @@ tr.flagged td{background:#ffebee; border-left: 4px solid var(--red)}
     </div>
 
     <div class="grid" id="kpiGrid"></div>
+<!-- Financial View -->
+<div class="section active" id="view-finance">
+    <div class="section-header"><h2>Financial Statement (P&L)</h2></div>
+    <div class="table-wrap">
+        <table>
+            <thead><tr><th style="width:30%">Item</th><th>Description</th><th class="num">Amount (฿)</th><th class="num">% Rev</th></tr></thead>
+            <tbody id="cfBody"></tbody>
+        </table>
+    </div>
 
-    <!-- Financial View -->
-    <div class="section active" id="view-finance">
-        <div class="section-header"><h2>Financial Statement</h2></div>
-        <div class="table-wrap">
-            <table>
-                <thead><tr><th style="width:30%">Category</th><th>Description</th><th class="num">Amount (฿)</th><th class="num">% Rev</th></tr></thead>
-                <tbody id="cfBody"></tbody>
-            </table>
-        </div>
+    <div class="section-header" style="margin-top:40px"><h2>Profit Sharing (Blessme)</h2></div>
+    <div class="table-wrap">
+        <table>
+            <thead><tr><th>Branch</th><th>Net Profit</th><th>Share %</th><th class="num">Blessme Earnings (฿)</th></tr></thead>
+            <tbody id="profitShareBody"></tbody>
+        </table>
+    </div>
+
+    <div class="section-header" style="margin-top:40px"><h2>Monthly Expense Log</h2></div>
+    <div class="table-wrap">
+        <table id="expenseTable">
+            <thead><tr><th>Date</th><th>Branch</th><th>Category</th><th>Description</th><th class="num">Amount (฿)</th></tr></thead>
+            <tbody id="expenseLogBody"></tbody>
+        </table>
+    </div>
+</div>
         <div style="margin-top:30px" class="charts-grid">
             <div class="chart-box"><h3>Revenue Trend</h3><canvas id="chartRevPay"></canvas></div>
             <div class="chart-box"><h3>Product Mix (Last 14d)</h3><canvas id="chartExpMix"></canvas></div>
@@ -231,7 +247,7 @@ async function init() {
                 if (!r.ok) throw new Error("Failed to load data.json: " + r.status);
                 return r.json();
             }),
-            fetch('stock_ledger.json?t=' + Date.now()).catch(() => null).then(r => r ? r.json() : null)
+            fetch('stock_ledger.json?t=' + Date.now()).then(r => r.ok ? r.json() : null).catch(() => null)
         ]);
         
         DATA = dataRes;
@@ -335,58 +351,93 @@ function renderKPIs(sales, expenses) {
 function renderFinance(sales, expenses) {
     const rev = sum(sales, 'rev');
     const dailyExp = sum(sales, 'exp');
-    const avgSales = sales.length > 0 ? (rev / sales.length) : 0;
+    
+    // COGS: Direct materials + Variable Ops (Ice/Pkg/Transport)
+    const cogsCats = ['Orange', 'Watermelon', 'Apple/Melon', 'Mango', 'Coconut', 'Ice', 'Packaging', 'Transportation'];
+    const totalCOGS = expenses.filter(e => cogsCats.includes(e.cat)).reduce((sum, e) => sum + e.amt, 0);
+    
+    const gp = rev - totalCOGS;
+    const opex = expenses.filter(e => !cogsCats.includes(e.cat) && e.cat !== 'Investment').reduce((sum, e) => sum + e.amt, 0);
+    
+    // Fixed Costs (Dynamic based on selected branch/month)
+    let totalFixed = 0;
+    const activeBranches = currentBranch === 'all' ? ['B1', 'B2'] : [currentBranch];
+    activeBranches.forEach(b => {
+        // Only add fixed costs if there is sales data for the selected month
+        if (sales.some(s => s.branch === b)) {
+            totalFixed += PARAMS.fixedCosts[b];
+        }
+    });
+
+    const ebitda = gp - opex - totalFixed;
+    const netMargin = rev > 0 ? (ebitda / rev * 100) : 0;
 
     const rows = [
-        { l: '<b>Gross Revenue</b>', a: rev, b:true },
-        { l: 'Daily Sales Average', a: avgSales, i: true },
-        { l: 'Daily Expenses (Ice/Staff)', a: dailyExp },
-        { l: 'Other Expenses (COGS/OPEX)', a: sum(expenses, 'amt') },
-        { l: '<b>Estimated Net Cash</b>', a: rev - dailyExp - sum(expenses, 'amt'), b:true }
+        { l: '<b>Revenue (ยอดขาย)</b>', a: rev, b:true },
+        { l: 'COGS (ต้นทุนวัตถุดิบ)', a: totalCOGS },
+        { l: '<b>Gross Profit (GP)</b>', a: gp, b:true },
+        { l: 'OPEX (ค่าใช้จ่ายดำเนินงาน)', a: opex },
+        { l: 'Fixed Costs (ค่าเช่า/พนักงาน)', a: totalFixed },
+        { l: '<b>EBITDA (กำไรก่อนหักค่าเสื่อม)</b>', a: ebitda, b:true },
+        { l: '<b>Net Margin (%)</b>', a: netMargin, i: true }
     ];
+
     document.getElementById('cfBody').innerHTML = rows.map(r => `
         <tr class="${r.b?'bold':''} ${r.i?'italic':''}">
             <td>${r.l}</td>
-            <td>${r.i ? '(Total Rev / Operating Days)' : ''}</td>
-            <td class="num">฿${fmt(r.a)}</td>
-            <td class="num">${!r.i && rev ? (r.a/rev*100).toFixed(1) : ''}${!r.i && rev ? '%' : ''}</td>
+            <td>${r.i ? 'Profitability Efficiency' : ''}</td>
+            <td class="num">${r.i ? '' : '฿' + fmt(r.a)}</td>
+            <td class="num">${r.i ? r.a.toFixed(1) + '%' : (rev ? (r.a/rev*100).toFixed(1) + '%' : '0%')}</td>
         </tr>
     `).join('');
 
-    // Ensure sales are sorted by date for trend charts
-    const sortedSales = [...sales].sort((a, b) => parseDmy(a.d) - parseDmy(b.d));
+    // Profit Sharing Breakdown
+    let sharingHtml = '';
+    let totalBlessme = 0;
+    activeBranches.forEach(b => {
+        const bSales = sales.filter(s => s.branch === b);
+        if (bSales.length === 0) return;
 
+        const bRev = sum(bSales, 'rev');
+        const bUsage = bSales.reduce((s, r) => s + ((r.uo||0)*700 + (r.uw||0)*35 + (r.uap||0)*30 + (r.umg||0)*150 + (r.uco_raw||0)*35), 0);
+        const bFixed = PARAMS.fixedCosts[b];
+        const bNet = bRev - bUsage - bFixed;
+        const bShare = Math.max(0, bNet * PARAMS.profitShare[b]);
+        totalBlessme += bShare;
+
+        sharingHtml += `
+            <tr>
+                <td>${b === 'B1' ? 'Branch 1' : 'Branch 2'}</td>
+                <td>฿${fmt(bNet)}</td>
+                <td>${PARAMS.profitShare[b]*100}%</td>
+                <td class="num"><b>฿${fmt(bShare)}</b></td>
+            </tr>
+        `;
+    });
+    sharingHtml += `<tr class="bold" style="background:rgba(255,102,0,0.1)"><td>TOTAL BLESSME EARNINGS</td><td></td><td></td><td class="num" style="color:var(--accent)">฿${fmt(totalBlessme)}</td></tr>`;
+    document.getElementById('profitShareBody').innerHTML = sharingHtml;
+
+    // Monthly Expense Log
+    document.getElementById('expenseLogBody').innerHTML = expenses.sort((a,b) => b.amt - a.amt).map(e => `
+        <tr>
+            <td>${e.date}</td>
+            <td><span class="branch-label ${e.branch}">${e.branch}</span></td>
+            <td>${e.cat}</td>
+            <td>${e.desc}</td>
+            <td class="num">฿${fmt(e.amt)}</td>
+        </tr>
+    `).join('');
+
+    // Trend Charts
+    const sortedSales = [...sales].sort((a, b) => parseDmy(a.d) - parseDmy(b.d));
     if(charts.rev) charts.rev.destroy();
     charts.rev = new Chart(document.getElementById('chartRevPay'), {
         type: 'line',
         data: { 
             labels: sortedSales.map(r => r.d), 
-            datasets: [{ label: 'Revenue', data: sortedSales.map(r => r.rev), borderColor: '#1f4e79', tension: 0.4 }] 
+            datasets: [{ label: 'Revenue', data: sortedSales.map(r => r.rev), borderColor: '#1f4e79', fill: true, backgroundColor: 'rgba(31,78,121,0.1)', tension: 0.4 }] 
         },
         options: { responsive: true, scales: { y: { beginAtZero: false } } }
-    });
-
-    if(charts.expMix) charts.expMix.destroy();
-    const last14 = sortedSales.slice(-14);
-    charts.expMix = new Chart(document.getElementById('chartExpMix'), {
-        type: 'bar',
-        data: {
-            labels: last14.map(r => r.d),
-            datasets: [
-                { label: 'Orange',      data: last14.map(r => r.or),      backgroundColor: '#ff9800', stack: 'cups' },
-                { label: 'Watermelon',  data: last14.map(r => r.wm),      backgroundColor: '#4caf50', stack: 'cups' },
-                { label: 'Mango',       data: last14.map(r => r.mg),      backgroundColor: '#ffc107', stack: 'cups' },
-                { label: 'Coconut',     data: last14.map(r => r.co),      backgroundColor: '#795548', stack: 'cups' },
-                { label: 'Young Coco',  data: last14.map(r => r.yco||0),  backgroundColor: '#a5d6a7', stack: 'cups' },
-                { label: 'Guava',       data: last14.map(r => r.guava||0),backgroundColor: '#8bc34a', stack: 'cups' },
-                { label: 'Apple',       data: last14.map(r => r.ap),      backgroundColor: '#f44336', stack: 'cups' }
-            ]
-        },
-        options: { 
-            plugins: { legend: { position: 'bottom' } }, 
-            scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true } }, 
-            responsive: true 
-        }
     });
 }
 
@@ -564,7 +615,15 @@ function renderLog(sales) {
 
 const PARAMS = {
     prices: { orange: 60, orange_premium: 100, watermelon: 50, apple: 60, mango: 90, coconut: 60, young: 90, guava: 60 },
-    costs: { orange: 700, watermelon: 35, apple: 30, mango: 150, coconut: 35, young: 50, guava: 30 } // Assumptions for Contribution calculation
+    costs: { orange: 700, watermelon: 35, apple: 30, mango: 150, coconut: 35, young: 50, guava: 30 },
+    fixedCosts: {
+        B1: 56000,
+        B2: 54000 // 30,000 Rent + (800 * 30 Staff)
+    },
+    profitShare: {
+        B1: 0.60,
+        B2: 0.70
+    }
 };
 
 function renderAnalytics(sales, expenses) {

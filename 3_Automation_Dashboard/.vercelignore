@@ -2,8 +2,11 @@
 *
 !index.html
 !data.json
+!stock_ledger.json
+!Sales_System_Automation/
 
 # Ignore system files
 .DS_Store
 node_modules
 .vercel
+*.log
