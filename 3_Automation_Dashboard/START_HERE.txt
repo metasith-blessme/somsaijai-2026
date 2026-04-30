@@ -1,0 +1,286 @@
+================================================================================
+                    SOM SAI JAI COLD PRESS BAR
+            FEBRUARY 2026 SALES REPORT EXTRACTION PROJECT
+                         START HERE
+================================================================================
+
+QUICK START - READ THIS FIRST!
+================================================================================
+
+Welcome! All 28 images from your February 2026 sales report have been 
+located, organized, and prepared for data extraction.
+
+WHAT'S BEEN DONE:
+  ✓ All 28 images verified (3.3 MB total)
+  ✓ CSV spreadsheet template created (ready for data entry)
+  ✓ JSON database structure prepared
+  ✓ Complete documentation generated
+  ✓ Extraction guides created
+
+WHAT YOU NEED TO DO:
+  1. Open: FEB26_SALES_DATA_TEMPLATE.csv (in Excel or Google Sheets)
+  2. For each of the 28 rows:
+     • Look at the corresponding image
+     • Write down the date and numbers you see
+     • Type them into the spreadsheet
+  3. Save your completed spreadsheet
+
+TIME ESTIMATE: 2-4 hours for complete extraction
+
+================================================================================
+WHERE TO FIND EVERYTHING
+================================================================================
+
+YOUR IMAGES (Source Data):
+  Location: /Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/
+  Files: LINE_ALBUM_ยอดขายกุมภา_260324_1.jpg through _28.jpg
+  Total: 28 JPEG images (3.3 MB)
+
+YOUR TEMPLATES (For Data Entry):
+  Location: /Users/metasithjumpatip/Desktop/Blessme/Somsaijai/
+  
+  MAIN FILE - Use this for spreadsheet data entry:
+  → FEB26_SALES_DATA_TEMPLATE.csv (1.4 KB)
+    28 rows × 35 columns, ready for Excel/Google Sheets
+    
+  ALSO AVAILABLE:
+  → FEB26_SALES_DATA_STRUCTURE.json (52 KB)
+    JSON format for database import
+    
+YOUR GUIDES (For Understanding):
+  Location: /Users/metasithjumpatip/Desktop/Blessme/Somsaijai/
+  
+  → README_FEB26_EXTRACTION.txt
+    Quick reference guide (4 pages)
+    Best for: Getting started
+    
+  → FEB26_COMPLETE_REPORT.txt
+    Full project documentation (5 pages)
+    Best for: Complete understanding
+    
+  → Sale report/Feb26_EXTRACTION_GUIDE.md
+    Detailed field definitions
+    Best for: Understanding each field
+
+  → MANIFEST.txt
+    Complete file listing and verification
+    Best for: Project overview
+
+================================================================================
+WHAT EACH IMAGE CONTAINS
+================================================================================
+
+Each of the 28 images shows a handwritten daily sales report with:
+
+1. DATE & DAY OF WEEK
+   Example: "1.2.2026 Sunday" or "2.2.2026 Monday"
+
+2. PRODUCT SALES (Two columns: Cash | Scan)
+   • Cup(80) - 80 baht cups
+   • Cup(60) - 60 baht cups
+   • Bot(40) - 40 baht bottles
+   • Bot(200) - 200 baht bottles
+   • Cup(100) - 100 baht cups
+   • Watermelon(50) - 50 baht
+   • Watermelon(60) - 60 baht
+   • Cup(50) - 50 baht
+   • Mango(60) - occasional
+   • Coconut(60) - occasional
+
+3. DAILY SUMMARY (Bottom of page)
+   • Total Revenue
+   • Total Cash
+   • Ice/Expenses
+   • Cash After Expenses
+   • Scan/Transfer Total
+   • Cup counts (Orange, Watermelon, Mango, Total)
+   • Bot count
+   • Materials used (Orange baskets, Watermelon pieces)
+
+================================================================================
+HOW TO EXTRACT THE DATA - STEP BY STEP
+================================================================================
+
+STEP 1: Open the Template
+  • Go to: /Users/metasithjumpatip/Desktop/Blessme/Somsaijai/
+  • File: FEB26_SALES_DATA_TEMPLATE.csv
+  • Open with: Microsoft Excel, Google Sheets, or LibreOffice Calc
+
+STEP 2: Start with Day 1
+  • Open: Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_1.jpg
+  • Look at the handwritten date at the top
+  • Read the date carefully (example: "1.2.2026 Sunday")
+  • Find row 1 in your spreadsheet
+  • Enter the date in the "Date" column
+
+STEP 3: Fill in Product Amounts
+  • For each product (Cup 80, Cup 60, Bot 40, etc.):
+    - Find the "Cash" amount in the image
+    - Enter in the "Cash" column
+    - Find the "Scan" amount in the image
+    - Enter in the "Scan" column
+
+STEP 4: Fill in Totals
+  • At the bottom of the image, you'll see:
+    - "All →" = Total Revenue
+    - "Cash →" = Total Cash
+    - "Ice/expenses →" = Expenses
+    - "(amount) →" = Cash After Expenses
+    - "Scan →" = Total Scan/Transfer
+
+STEP 5: Fill in Inventory
+  • Cup counts: Orange, Watermelon, Mango, Total Cups
+  • Bot count
+  • Materials used: Orange baskets, Watermelon pieces
+
+STEP 6: Repeat for Days 2-28
+  • Open each image in sequence
+  • Fill in the corresponding row in your spreadsheet
+  • Work through all 28 days
+
+STEP 7: Save Your Work
+  • Save the CSV file regularly
+  • After all 28 days: Save as final version
+  • Make a backup copy
+
+================================================================================
+KEY THINGS TO REMEMBER
+================================================================================
+
+✓ IMAGE NUMBERS ≠ DATES
+  Image 1 might be February 3rd, image 2 might be February 1st
+  Always read the actual date from each image
+
+✓ TWO PAYMENT METHODS
+  Each product has: Cash amount AND Scan/Transfer amount
+  Don't mix them up - use separate columns
+
+✓ SOME PRODUCTS MAY BE MISSING
+  Mango(60) and Coconut(60) don't appear every day
+  Leave blank if not in that day's image
+
+✓ CURRENCY IS BAHT
+  All amounts are Thai Baht (฿)
+  No need to convert
+
+✓ TOTALS SHOULD MATCH
+  Total Revenue = Sum of all product sales
+  Cash + Scan should roughly equal Total Revenue
+  (They may not match exactly due to discounts/adjustments)
+
+✓ CAREFUL WITH HANDWRITING
+  Numbers may be unclear
+  Cross-reference with other numbers to verify
+  Example: If total is 1000 baht, check that products add up close
+
+================================================================================
+IF YOU NEED HELP
+================================================================================
+
+Question about:                    See this file:
+─────────────────────────────────────────────────────────────────────────────
+What does each product mean?       Feb26_EXTRACTION_GUIDE.md
+What's the full project scope?     FEB26_COMPLETE_REPORT.txt
+Quick reference info?              README_FEB26_EXTRACTION.txt
+What files exist?                  MANIFEST.txt
+How to use the JSON format?        FEB26_SALES_DATA_STRUCTURE.json
+Which image goes with which day?   Check the date on each image file
+How many images total?             28 (all in Feb26 folder)
+
+================================================================================
+FREQUENTLY ASKED QUESTIONS
+================================================================================
+
+Q: Do I need to match images to calendar dates?
+A: Yes. The image numbers (1-28) don't match February calendar dates.
+   Always read the date written on each image.
+
+Q: What if a product is missing from an image?
+A: Leave it blank in the CSV. Not every product appears every day.
+
+Q: Should I enter zeroes for missing products?
+A: No, leave blank. Zeroes mean the product sold zero units, which is 
+   different from "not recorded."
+
+Q: What if numbers are hard to read?
+A: Do your best. Cross-check with other columns if available.
+   Ask if you're really unsure.
+
+Q: Can I use Google Sheets instead of Excel?
+A: Yes! The CSV file works with both. Google Sheets can import CSV files.
+
+Q: What if I make a mistake?
+A: Just correct it. The spreadsheet is editable.
+
+Q: How long does this take?
+A: 2-4 hours depending on handwriting clarity and your speed.
+
+Q: What do I do when finished?
+A: Save the CSV file. You can then import to Excel, database, or analysis tool.
+
+Q: Can I extract just some days?
+A: Yes, you can do it in sections. Just save your progress.
+
+================================================================================
+GETTING STARTED RIGHT NOW
+================================================================================
+
+1. Go to your home directory
+2. Navigate to: Desktop → Blessme → Somsaijai
+3. Open: FEB26_SALES_DATA_TEMPLATE.csv
+4. Also open in another window: Sale report → Feb26 folder
+5. Open the first image: LINE_ALBUM_ยอดขายกุมภา_260324_1.jpg
+6. Start typing the data from the image into row 1
+7. Continue with images 2-28
+
+You're ready to go! Start with image 1.
+
+================================================================================
+SUPPORT FILES
+================================================================================
+
+All these files are in your Somsaijai folder:
+
+CSV TEMPLATE (Main work file):
+  FEB26_SALES_DATA_TEMPLATE.csv - 1.4 KB
+
+DATA STRUCTURES:
+  FEB26_SALES_DATA_STRUCTURE.json - 52 KB (for database import)
+
+QUICK GUIDES:
+  README_FEB26_EXTRACTION.txt - 7.2 KB
+  START_HERE.txt - This file
+
+DETAILED DOCS:
+  FEB26_COMPLETE_REPORT.txt - 8.7 KB
+  MANIFEST.txt - 10 KB
+  Feb26_EXTRACTION_GUIDE.md - In Sale report folder
+
+================================================================================
+FINAL CHECKLIST
+================================================================================
+
+Before starting, make sure you have:
+  ☐ Opened FEB26_SALES_DATA_TEMPLATE.csv
+  ☐ Navigated to Sale report/Feb26/ folder with images
+  ☐ Can see all 28 image files
+  ☐ Have a text editor or spreadsheet program ready
+  ☐ Understand the date format (DD.MM.YYYY)
+  ☐ Know where to save your completed work
+
+Ready? Open image 1 and start entering data!
+
+================================================================================
+HAPPY EXTRACTING!
+================================================================================
+
+You have everything you need to extract all 28 days of sales data.
+The templates are ready, the images are organized, and the guides are here.
+
+All 28 images are verified and ready to use.
+Start with the CSV template and image 1.
+
+Questions? Refer to the guides above.
+Good luck!
+
+================================================================================

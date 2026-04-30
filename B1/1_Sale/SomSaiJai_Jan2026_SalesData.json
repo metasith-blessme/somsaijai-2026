@@ -1,0 +1,2232 @@
+{
+  "report_metadata": {
+    "business_name": "Som Sai Jai Cold Press Bar",
+    "month": "January 2026",
+    "total_days": 31,
+    "currency": "Thai Baht (THB)",
+    "data_format_version": "1.0"
+  },
+  "extraction_guide": {
+    "note": "Each image contains handwritten daily sales data with the following sections",
+    "sections": [
+      "Header: Date and day of week",
+      "Sales by product: Cash and Scan/Transfer columns",
+      "Summary: Totals, expenses, and item usage"
+    ],
+    "product_types": [
+      "Cup(80) - 80 baht orange juice cups",
+      "Cup(60) - 60 baht orange juice cups",
+      "Bot(40) - 40 baht small bottles",
+      "Bot(200) - 200 baht big bottles",
+      "Cup(100) - 100 baht cups",
+      "Watermelon(50) - 50 baht watermelon",
+      "Watermelon(60) - 60 baht watermelon",
+      "Mango(60) - 60 baht mango (optional)",
+      "Coconut(60) - 60 baht coconut (optional)",
+      "Cup(50) - 50 baht cups (occasional)"
+    ]
+  },
+  "daily_data": {
+    "2026-01-01": {
+      "image_reference": "Image file #1",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-02": {
+      "image_reference": "Image file #2",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-03": {
+      "image_reference": "Image file #3",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-04": {
+      "image_reference": "Image file #4",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-05": {
+      "image_reference": "Image file #5",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-06": {
+      "image_reference": "Image file #6",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-07": {
+      "image_reference": "Image file #7",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-08": {
+      "image_reference": "Image file #8",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-09": {
+      "image_reference": "Image file #9",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-10": {
+      "image_reference": "Image file #10",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-11": {
+      "image_reference": "Image file #11",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-12": {
+      "image_reference": "Image file #12",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-13": {
+      "image_reference": "Image file #13",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-14": {
+      "image_reference": "Image file #14",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-15": {
+      "image_reference": "Image file #15",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-16": {
+      "image_reference": "Image file #16",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-17": {
+      "image_reference": "Image file #17",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-18": {
+      "image_reference": "Image file #18",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-19": {
+      "image_reference": "Image file #19",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-20": {
+      "image_reference": "Image file #20",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-21": {
+      "image_reference": "Image file #21",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-22": {
+      "image_reference": "Image file #22",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-23": {
+      "image_reference": "Image file #23",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-24": {
+      "image_reference": "Image file #24",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-25": {
+      "image_reference": "Image file #25",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-26": {
+      "image_reference": "Image file #26",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-27": {
+      "image_reference": "Image file #27",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-28": {
+      "image_reference": "Image file #28",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-29": {
+      "image_reference": "Image file #29",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-30": {
+      "image_reference": "Image file #30",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    },
+    "2026-01-31": {
+      "image_reference": "Image file #31",
+      "day_of_week": null,
+      "sales": {
+        "Cup_80_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_40_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Bot_200_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_100_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_50_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Watermelon_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Mango_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Coconut_60_baht": {
+          "cash": null,
+          "scan": null
+        },
+        "Cup_50_baht": {
+          "cash": null,
+          "scan": null
+        }
+      },
+      "financial_summary": {
+        "total_revenue": null,
+        "total_cash": null,
+        "expenses": null,
+        "cash_after_expenses": null,
+        "transfer_scan": null
+      },
+      "inventory": {
+        "cups": {
+          "orange": null,
+          "watermelon": null,
+          "mango": null,
+          "coconut": null,
+          "total": null
+        },
+        "bottles": {
+          "big": null,
+          "small": null
+        }
+      },
+      "items_used": {
+        "orange_baskets": null,
+        "watermelon_pieces": null
+      },
+      "extraction_status": "PENDING"
+    }
+  }
+}

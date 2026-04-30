@@ -1,0 +1,23 @@
+{
+  "yields": {
+    "orange": 29.3,
+    "watermelon": 3.5,
+    "apple": 0.5,
+    "mango": 0.5
+  },
+  "prices": {
+    "orange": 60,
+    "orange_premium": 100,
+    "watermelon": 50,
+    "apple": 60,
+    "mango": 90,
+    "coconut": 60,
+    "young": 90,
+    "guava": 60
+  },
+  "thresholds": {
+    "revenue_pct": 0.05,
+    "revenue_abs": 500,
+    "stock_pct": 0.10
+  }
+}

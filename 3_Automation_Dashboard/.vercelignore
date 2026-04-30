@@ -1,0 +1,9 @@
+# Ignore everything except the dashboard files
+*
+!index.html
+!data.json
+
+# Ignore system files
+.DS_Store
+node_modules
+.vercel

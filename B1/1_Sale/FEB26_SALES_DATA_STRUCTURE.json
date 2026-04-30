@@ -1,0 +1,2114 @@
+{
+  "extraction_project": {
+    "store": "Som Sai Jai Cold Press Bar",
+    "report_period": "February 2026",
+    "currency": "Thai Baht (฿)",
+    "total_daily_reports": 28,
+    "extraction_status": "All 28 images located and organized",
+    "base_directory": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26",
+    "image_format": "JPEG",
+    "total_data_size": "~3.4 MB"
+  },
+  "daily_reports": [
+    {
+      "day_number": 1,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_1.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_1.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 2,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_2.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_2.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 3,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_3.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_3.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 4,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_4.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_4.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 5,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_5.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_5.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 6,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_6.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_6.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 7,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_7.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_7.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 8,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_8.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_8.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 9,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_9.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_9.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 10,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_10.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_10.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 11,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_11.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_11.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 12,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_12.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_12.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 13,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_13.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_13.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 14,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_14.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_14.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 15,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_15.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_15.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 16,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_16.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_16.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 17,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_17.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_17.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 18,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_18.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_18.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 19,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_19.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_19.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 20,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_20.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_20.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 21,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_21.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_21.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 22,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_22.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_22.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 23,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_23.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_23.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 24,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_24.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_24.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 25,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_25.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_25.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 26,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_26.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_26.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 27,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_27.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_27.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    },
+    {
+      "day_number": 28,
+      "image_filename": "LINE_ALBUM_ยอดขายกุมภา_260324_28.jpg",
+      "image_path": "/Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Feb26/LINE_ALBUM_ยอดขายกุมภา_260324_28.jpg",
+      "status": "pending_extraction",
+      "extracted_data": {
+        "date": null,
+        "day_of_week": null,
+        "products": {
+          "Cup_80": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_40": {
+            "cash": null,
+            "scan": null
+          },
+          "Bot_200": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_100": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Watermelon_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Cup_50": {
+            "cash": null,
+            "scan": null
+          },
+          "Mango_60": {
+            "cash": null,
+            "scan": null
+          },
+          "Coconut_60": {
+            "cash": null,
+            "scan": null
+          }
+        },
+        "summary": {
+          "total_revenue": null,
+          "total_cash": null,
+          "expenses": null,
+          "cash_after_expenses": null,
+          "scan_transfer": null
+        },
+        "inventory": {
+          "cups": {
+            "orange": null,
+            "watermelon": null,
+            "mango": null,
+            "total": null
+          },
+          "bottles": {
+            "total": null
+          },
+          "materials_used": {
+            "orange_baskets": null,
+            "watermelon_pcs": null
+          }
+        }
+      },
+      "extraction_notes": ""
+    }
+  ]
+}

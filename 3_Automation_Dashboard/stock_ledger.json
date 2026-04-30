@@ -1,0 +1,108 @@
+{
+  "purchases": [
+    {
+      "date": "2026-04-12",
+      "item": "orange",
+      "qty": 100
+    }
+  ],
+  "physical_checks": [
+    {
+      "date": "2026-04-16",
+      "item": "orange",
+      "qty": 27,
+      "unit": "basket"
+    },
+    {
+      "date": "2026-04-16",
+      "item": "apple",
+      "qty": 0,
+      "unit": "box",
+      "note": "supplier closed - awaiting restock"
+    },
+    {
+      "date": "2026-04-16",
+      "item": "watermelon",
+      "qty": 38,
+      "unit": "pcs"
+    },
+    {
+      "date": "2026-04-16",
+      "item": "mango",
+      "qty": 1,
+      "unit": "box"
+    },
+    {
+      "date": "2026-04-16",
+      "item": "coconut_raw",
+      "qty": 15,
+      "unit": "pcs"
+    },
+    {
+      "date": "2026-04-16",
+      "item": "coconut_water",
+      "qty": 27,
+      "unit": "bottle"
+    },
+    {
+      "date": "2026-04-16",
+      "item": "cup",
+      "qty": 81,
+      "unit": "row"
+    },
+    {
+      "date": "2026-04-16",
+      "item": "lid",
+      "qty": 125,
+      "unit": "row"
+    },
+    {
+      "date": "2026-04-29",
+      "item": "coconut_raw",
+      "qty": 26,
+      "unit": "pcs"
+    },
+    {
+      "date": "2026-04-29",
+      "item": "coconut_water",
+      "qty": 27,
+      "unit": "bottle"
+    },
+    {
+      "date": "2026-04-29",
+      "item": "falcon_milk",
+      "qty": 7,
+      "unit": "can"
+    },
+    {
+      "date": "2026-04-29",
+      "item": "goodwill_milk",
+      "qty": 4,
+      "unit": "can"
+    },
+    {
+      "date": "2026-04-29",
+      "item": "watermelon",
+      "qty": 58,
+      "unit": "pcs"
+    },
+    {
+      "date": "2026-04-29",
+      "item": "orange",
+      "qty": 28,
+      "unit": "basket"
+    },
+    {
+      "date": "2026-04-29",
+      "item": "apple",
+      "qty": 5,
+      "unit": "box"
+    },
+    {
+      "date": "2026-04-29",
+      "item": "mango",
+      "qty": 2,
+      "unit": "box"
+    }
+  ]
+}

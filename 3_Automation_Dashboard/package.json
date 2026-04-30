@@ -1,0 +1,24 @@
+{
+  "name": "sale-report",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "process-sales": "node Sales_System_Automation/ocr-sales-dashboard/scripts/process_sales.js",
+    "verify-sales": "node Sales_System_Automation/ocr-sales-dashboard/scripts/verify_sales.js",
+    "sync": "node Sales_System_Automation/ocr-sales-dashboard/scripts/sync_all.js",
+    "process-expenses": "node Sales_System_Automation/process_expenses.js",
+    "update-dashboard": "node Sales_System_Automation/ocr-sales-dashboard/scripts/update_dashboard.js",
+    "audit-stock": "node Sales_System_Automation/scripts/audit_stock.js",
+    "stock-in": "node Sales_System_Automation/scripts/stock_in.js",
+    "deploy": "npx vercel --prod",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "xlsx": "^0.18.5"
+  }
+}

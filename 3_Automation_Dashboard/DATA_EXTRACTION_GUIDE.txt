@@ -1,0 +1,142 @@
+
+SOM SAI JAI COLD PRESS BAR - JANUARY 2026 SALES DATA EXTRACTION GUIDE
+======================================================================
+
+OVERVIEW:
+This guide provides systematic instructions for extracting handwritten sales data
+from 31 daily sales report images for January 2026.
+
+FILE LOCATIONS:
+- Source images: /Users/metasithjumpatip/Desktop/Blessme/Somsaijai/Sale report/Jan26/
+- CSV template: /Users/metasithjumpatip/Desktop/Blessme/Somsaijai/SomSaiJai_Jan2026_SalesData_Template.csv
+- JSON template: /Users/metasithjumpatip/Desktop/Blessme/Somsaijai/SomSaiJai_Jan2026_SalesData.json
+
+IMAGE FILES TO PROCESS (31 total):
+- LINE_ALBUM_ยอดขายมกราคม_260324_1.jpg through _31.jpg
+- Note: Image numbers may not correspond to calendar dates
+- Always verify the actual date written on each handwritten report
+
+EXTRACTION PROCESS FOR EACH IMAGE:
+===================================
+
+STEP 1: Identify the Date and Day
+   - Look at the top of the page
+   - Find date in format: "D.M.YYYY" (e.g., "1.1.2026")
+   - Identify day of week (e.g., "วันจันทร์" = Monday)
+   - Record in: Date field and Day_of_Week field
+
+STEP 2: Extract Product Sales (Each Product Has TWO Columns)
+   
+   Format per product line: [Product Name] [Cash Amount] | [Scan Amount]
+   
+   Products to look for (in order):
+   1. Cup(80)      - Cash: ___, Scan: ___
+   2. Cup(60)      - Cash: ___, Scan: ___
+   3. Bot(40)      - Cash: ___, Scan: ___
+   4. Bot(200)     - Cash: ___, Scan: ___
+   5. Cup(100)     - Cash: ___, Scan: ___
+   6. Watermelon(50) - Cash: ___, Scan: ___
+   7. Watermelon(60) - Cash: ___, Scan: ___
+   8. Mango(60)    - Cash: ___, Scan: ___ (may not appear every day)
+   9. Coconut(60)  - Cash: ___, Scan: ___ (may not appear every day)
+   10. Cup(50)     - Cash: ___, Scan: ___ (occasional)
+   
+   Place each value in corresponding column:
+   - Column: [ProductName]_Cash
+   - Column: [ProductName]_Scan
+
+STEP 3: Extract Summary Section (Usually Bottom of Page)
+   
+   Look for these labels and values:
+   
+   "All →" (ทั้งหมด) = Total_Revenue
+   "Cash" = Total_Cash
+   "Ice@" / "iceD" / "Staff D" etc = Expenses_List (list each type and amount)
+   After expenses section = Cash_After_Expenses
+   "Scan" = Total_Scan (also called Transfer)
+
+STEP 4: Extract Cup Counts
+   
+   Look for line with cups summary:
+   "Cup: Orange → [X], Watermelon → [Y], [Mango → Z], [Coconut → W], Total → [T]"
+   
+   Extract:
+   - Cup_Orange_Count = X
+   - Cup_Watermelon_Count = Y
+   - Cup_Mango_Count = Z (if present)
+   - Cup_Coconut_Count = W (if present)
+   - Total_Cups = T
+
+STEP 5: Extract Bottle Counts
+   
+   Look for line with bottles summary:
+   "Bot: Big → [X], Small → [Y]"
+   
+   Extract:
+   - Bot_Big_Count = X
+   - Bot_Small_Count = Y
+
+STEP 6: Extract Items Used (Bottom Left)
+   
+   Look for consumption section:
+   "Orange → [X] baskets"
+   "Watermelon → [Y] pcs"
+   
+   Extract:
+   - Orange_Baskets_Used = X
+   - Watermelon_Pieces_Used = Y
+
+STEP 7: Fill in Notes (Optional)
+   
+   Add any observations or special notes for the day in the Notes field.
+
+DATA ENTRY:
+===========
+
+For CSV Format:
+- Open: SomSaiJai_Jan2026_SalesData_Template.csv
+- Fill row for each date with extracted values
+- Save as Excel or continue in CSV format
+
+For JSON Format:
+- Open: SomSaiJai_Jan2026_SalesData.json
+- Update "extraction_status" from "PENDING" to "EXTRACTED"
+- Fill in all null values with actual data
+- Save with updated values
+
+VALIDATION CHECKLIST:
+=====================
+[ ] All 31 days have been processed
+[ ] Dates are in correct format (2026-01-DD)
+[ ] Day of week is correctly identified
+[ ] All product cash values are entered
+[ ] All product scan values are entered
+[ ] Summary totals match expected calculations
+[ ] Cup counts add up correctly
+[ ] Bottle counts are complete
+[ ] Items used quantities are reasonable
+[ ] Currency is consistent (THB)
+
+EXAMPLE DATA ENTRY:
+===================
+Date: 2026-01-01
+Day_of_Week: Wednesday
+Cup80_Cash: 450, Cup80_Scan: 300
+Cup60_Cash: 200, Cup60_Scan: 150
+... [rest of products]
+Total_Revenue: 5000
+Total_Cash: 3500
+Expenses_List: Ice@300, Staff_D@200
+Cash_After_Expenses: 3000
+Total_Scan: 1500
+Cup_Orange_Count: 10, Cup_Watermelon_Count: 5
+Bot_Big_Count: 3, Bot_Small_Count: 8
+Orange_Baskets_Used: 3, Watermelon_Pieces_Used: 5
+
+NOTES:
+======
+- If a product doesn't appear on a day, enter 0 or leave blank
+- If expenses vary, list each type separately
+- Scan values represent card/transfer payments
+- Cash values represent cash payments
+- All values are in Thai Baht (THB)

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Som Sai Jai - Sales Dashboard Q1 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{--bg:#f0f4f8;--card:#fff;--primary:#1f4e79;--accent:#ff6600;--green:#2e7d32;--red:#c62828;--text:#333;--muted:#666;--border:#dde}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+.header{background:linear-gradient(135deg,var(--primary),#2d6ea5);color:#fff;padding:20px 30px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.header h1{font-size:1.6em;font-weight:700}
+.header .sub{opacity:.85;font-size:.9em}
+.drop-zone{border:2px dashed rgba(255,255,255,.5);border-radius:10px;padding:12px 24px;cursor:pointer;font-size:.9em;transition:.3s}
+.drop-zone:hover,.drop-zone.dragover{border-color:#fff;background:rgba(255,255,255,.15)}
+.container{max-width:1400px;margin:0 auto;padding:20px}
+.tabs{display:flex;gap:4px;margin-bottom:20px;flex-wrap:wrap}
+.tab{padding:10px 22px;background:var(--card);border:2px solid var(--border);border-radius:8px 8px 0 0;cursor:pointer;font-weight:600;transition:.2s;font-size:.95em}
+.tab.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.tab:hover:not(.active){background:#e8f0fe}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:24px}
+.kpi{background:var(--card);border-radius:12px;padding:20px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06);border-left:4px solid var(--primary);transition:.2s}
+.kpi:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.1)}
+.kpi .label{font-size:.8em;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.kpi .value{font-size:1.8em;font-weight:700;color:var(--primary)}
+.kpi .unit{font-size:.75em;color:var(--muted)}
+.kpi.green{border-color:var(--green)}.kpi.green .value{color:var(--green)}
+.kpi.orange{border-color:var(--accent)}.kpi.orange .value{color:var(--accent)}
+.kpi.red{border-color:var(--red)}.kpi.red .value{color:var(--red)}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
+.chart-card{background:var(--card);border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.chart-card h3{font-size:1em;color:var(--primary);margin-bottom:12px}
+.chart-card canvas{width:100%!important;max-height:300px}
+.table-wrap{background:var(--card);border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.06);overflow-x:auto;margin-bottom:24px}
+.table-wrap h3{font-size:1em;color:var(--primary);margin-bottom:12px}
+table{width:100%;border-collapse:collapse;font-size:.85em}
+th{background:var(--primary);color:#fff;padding:10px 8px;text-align:center;white-space:nowrap}
+td{padding:8px;text-align:center;border-bottom:1px solid var(--border)}
+tr:nth-child(even){background:#f8fafc}
+tr:hover{background:#e8f0fe}
+.total-row td{background:#d6e4f0!important;font-weight:700;color:var(--primary)}
+@media(max-width:900px){.charts{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.grid{grid-template-columns:1fr}}
+.status{padding:8px 16px;background:#e8f0fe;border-radius:8px;text-align:center;margin-bottom:16px;font-size:.9em;color:var(--primary)}
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <h1>🍊 Som Sai Jai Cold Press Bar</h1>
+    <div class="sub">Sales Dashboard - 2026 (Jan - Apr)</div>
+  </div>
+  <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+    📂 Drop .xlsx or .csv here to update
+    <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" style="display:none">
+  </div>
+</div>
+
+<div class="container">
+  <div class="status" id="statusBar">Loaded with built-in data. Drop your updated Excel file to refresh.</div>
+
+  <div class="tabs" id="monthTabs"></div>
+
+  <div class="grid" id="kpiGrid"></div>
+
+  <div class="charts">
+    <div class="chart-card"><h3>Daily Revenue Trend (฿)</h3><canvas id="chartRevenue"></canvas></div>
+    <div class="chart-card"><h3>Cash vs Scan Breakdown (฿)</h3><canvas id="chartPayment"></canvas></div>
+    <div class="chart-card"><h3>Cup Sales by Product</h3><canvas id="chartCups"></canvas></div>
+    <div class="chart-card"><h3>Ingredients Used</h3><canvas id="chartUsed"></canvas></div>
+  </div>
+
+  <div class="table-wrap">
+    <h3 id="tableTitle">Daily Detail</h3>
+    <table><thead id="tHead"></thead><tbody id="tBody"></tbody></table>
+  </div>
+</div>
+
+<script>
+const BUILT_IN = {"Jan26":[{"d":"Date","day":"Day","rev":0,"cash":0,"exp":0,"net":0,"scan":0,"or":0,"wm":0,"mg":0,"co":0,"ap":0,"yco":0,"tot":0,"bb":0,"bs":0,"uo":0,"uw":0,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"1/1/2026","day":"Thu","rev":13690,"cash":8590,"exp":120,"net":8470,"scan":5100,"or":102,"wm":84,"mg":0,"co":0,"ap":0,"yco":0,"tot":186,"bb":4,"bs":0,"uo":4,"uw":3,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"2/1/2026","day":"Fri","rev":11105,"cash":6100,"exp":660,"net":5440,"scan":5005,"or":103,"wm":49,"mg":0,"co":0,"ap":0,"yco":0,"tot":152,"bb":1,"bs":0,"uo":4,"uw":12,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"3/1/2026","day":"Sat","rev":10090,"cash":6050,"exp":60,"net":5990,"scan":4040,"or":93,"wm":42,"mg":0,"co":0,"ap":0,"yco":0,"tot":135,"bb":1,"bs":3,"uo":4,"uw":9,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"4/1/2026","day":"Sun","rev":6840,"cash":4120,"exp":60,"net":4060,"scan":2720,"or":61,"wm":24,"mg":0,"co":0,"ap":0,"yco":0,"tot":85,"bb":0,"bs":3,"uo":2.5,"uw":6,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"5/1/2026","day":"Mon","rev":7200,"cash":4840,"exp":60,"net":4780,"scan":2360,"or":67,"wm":22,"mg":0,"co":0,"ap":0,"yco":0,"tot":89,"bb":0,"bs":3,"uo":2.5,"uw":5,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"6/1/2026","day":"Tue","rev":6020,"cash":3600,"exp":60,"net":3540,"scan":2420,"or":53,"wm":29,"mg":0,"co":0,"ap":0,"yco":0,"tot":82,"bb":0,"bs":1,"uo":2,"uw":7,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"7/1/2026","day":"Wed","rev":6430,"cash":3730,"exp":60,"net":3670,"scan":2700,"or":60,"wm":22,"mg":0,"co":0,"ap":0,"yco":0,"tot":82,"bb":1,"bs":3,"uo":2.5,"uw":5,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"8/1/2026","day":"Thu","rev":5910,"cash":4160,"exp":60,"net":4100,"scan":1750,"or":48,"wm":34,"mg":0,"co":0,"ap":0,"yco":0,"tot":82,"bb":0,"bs":1,"uo":2,"uw":12,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"9/1/2026","day":"Fri","rev":9080,"cash":4790,"exp":60,"net":4730,"scan":4290,"or":76,"wm":54,"mg":0,"co":0,"ap":0,"yco":0,"tot":130,"bb":0,"bs":0,"uo":3,"uw":14,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"10/1/2026","day":"Sat","rev":9860,"cash":5330,"exp":60,"net":5270,"scan":4530,"or":88,"wm":46,"mg":0,"co":0,"ap":0,"yco":0,"tot":134,"bb":1,"bs":1,"uo":4,"uw":13,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"11/1/2026","day":"Sun","rev":7540,"cash":4310,"exp":60,"net":4250,"scan":3230,"or":54,"wm":45,"mg":0,"co":0,"ap":0,"yco":0,"tot":99,"bb":0,"bs":4,"uo":2.5,"uw":11,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"12/1/2026","day":"Mon","rev":9420,"cash":6640,"exp":60,"net":6580,"scan":2780,"or":71,"wm":45,"mg":0,"co":0,"ap":0,"yco":0,"tot":116,"bb":6,"bs":3,"uo":3.5,"uw":12,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"13/1/2026","day":"Tue","rev":7170,"cash":3880,"exp":60,"net":3820,"scan":3290,"or":46,"wm":49,"mg":0,"co":0,"ap":0,"yco":0,"tot":95,"bb":4,"bs":3,"uo":2.5,"uw":14,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"14/1/2026","day":"Wed","rev":6400,"cash":3810,"exp":60,"net":3750,"scan":2590,"or":43,"wm":48,"mg":0,"co":0,"ap":0,"yco":0,"tot":91,"bb":0,"bs":2,"uo":2,"uw":12,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"15/1/2026","day":"Thu","rev":6700,"cash":3910,"exp":60,"net":3850,"scan":2790,"or":46,"wm":51,"mg":0,"co":0,"ap":0,"yco":0,"tot":97,"bb":1,"bs":1,"uo":2,"uw":14,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"16/1/2026","day":"Fri","rev":8580,"cash":5440,"exp":60,"net":5380,"scan":3140,"or":88,"wm":41,"mg":0,"co":0,"ap":0,"yco":0,"tot":129,"bb":2,"bs":0,"uo":2.5,"uw":15,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"17/1/2026","day":"Sat","rev":11640,"cash":5670,"exp":120,"net":5550,"scan":5970,"or":131,"wm":66,"mg":0,"co":0,"ap":0,"yco":0,"tot":197,"bb":0,"bs":1,"uo":4,"uw":17,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"18/1/2026","day":"Sun","rev":9220,"cash":5860,"exp":60,"net":5800,"scan":3360,"or":108,"wm":46,"mg":0,"co":0,"ap":0,"yco":0,"tot":154,"bb":0,"bs":1,"uo":3.5,"uw":14,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"19/1/2026","day":"Mon","rev":7690,"cash":5650,"exp":60,"net":5590,"scan":2040,"or":88,"wm":39,"mg":0,"co":0,"ap":0,"yco":0,"tot":127,"bb":1,"bs":3,"uo":3,"uw":10,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"20/1/2026","day":"Tue","rev":7470,"cash":4060,"exp":60,"net":4000,"scan":3410,"or":79,"wm":41,"mg":0,"co":0,"ap":0,"yco":0,"tot":120,"bb":1,"bs":3,"uo":3,"uw":9,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"21/1/2026","day":"Wed","rev":8950,"cash":4840,"exp":60,"net":4780,"scan":4110,"or":81,"wm":60,"mg":0,"co":0,"ap":0,"yco":0,"tot":141,"bb":0,"bs":3,"uo":3,"uw":15,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"22/1/2026","day":"Thu","rev":7400,"cash":3630,"exp":60,"net":3570,"scan":3770,"or":71,"wm":49,"mg":0,"co":0,"ap":0,"yco":0,"tot":120,"bb":0,"bs":12,"uo":3,"uw":13,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"23/1/2026","day":"Fri","rev":9800,"cash":5630,"exp":180,"net":5450,"scan":4170,"or":107,"wm":55,"mg":0,"co":0,"ap":0,"yco":0,"tot":162,"bb":0,"bs":7,"uo":4,"uw":12,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"24/1/2026","day":"Sat","rev":11950,"cash":6870,"exp":120,"net":6750,"scan":5080,"or":137,"wm":60,"mg":0,"co":0,"ap":0,"yco":0,"tot":197,"bb":0,"bs":2,"uo":5,"uw":16,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"25/1/2026","day":"Sun","rev":12210,"cash":6160,"exp":120,"net":6040,"scan":6050,"or":109,"wm":71,"mg":0,"co":0,"ap":0,"yco":0,"tot":180,"bb":2,"bs":2,"uo":4,"uw":18,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"26/1/2026","day":"Mon","rev":7740,"cash":5390,"exp":60,"net":5330,"scan":2350,"or":75,"wm":61,"mg":0,"co":0,"ap":0,"yco":0,"tot":136,"bb":0,"bs":0,"uo":2,"uw":15,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"27/1/2026","day":"Tue","rev":9070,"cash":4240,"exp":120,"net":4120,"scan":4830,"or":90,"wm":64,"mg":0,"co":0,"ap":0,"yco":0,"tot":154,"bb":0,"bs":1,"uo":3,"uw":15,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"28/1/2026","day":"Wed","rev":8290,"cash":5180,"exp":60,"net":5120,"scan":3110,"or":85,"wm":53,"mg":0,"co":0,"ap":0,"yco":0,"tot":138,"bb":1,"bs":0,"uo":3,"uw":13,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"29/1/2026","day":"Thu","rev":10490,"cash":7270,"exp":60,"net":7210,"scan":3220,"or":93,"wm":72,"mg":0,"co":0,"ap":0,"yco":0,"tot":165,"bb":5,"bs":0,"uo":3.5,"uw":18,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"30/1/2026","day":"Fri","rev":8710,"cash":4450,"exp":60,"net":4390,"scan":4260,"or":83,"wm":51,"mg":0,"co":0,"ap":4,"yco":0,"tot":138,"bb":1,"bs":0,"uo":3,"uw":13,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"31/1/2026","day":"Sat","rev":12740,"cash":6180,"exp":120,"net":6060,"scan":6560,"or":157,"wm":72,"mg":0,"co":0,"ap":8,"yco":0,"tot":237,"bb":0,"bs":6,"uo":4.5,"uw":18,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0}],"Feb26":[{"d":"Date","day":"Day","rev":0,"cash":0,"exp":0,"net":0,"scan":0,"or":0,"wm":0,"mg":0,"co":0,"ap":0,"yco":0,"tot":0,"bb":0,"bs":0,"uo":0,"uw":0,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"1/2/2026","day":"Sun","rev":11720,"cash":6500,"exp":120,"net":6380,"scan":5220,"or":110,"wm":76,"mg":0,"co":0,"ap":0,"yco":0,"tot":186,"bb":0,"bs":0,"uo":4,"uw":18,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"2/2/2026","day":"Mon","rev":9830,"cash":6840,"exp":90,"net":6750,"scan":2990,"or":100,"wm":69,"mg":0,"co":0,"ap":0,"yco":0,"tot":169,"bb":0,"bs":0,"uo":3.5,"uw":16,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"3/2/2026","day":"Tue","rev":10960,"cash":6570,"exp":120,"net":6450,"scan":4390,"or":109,"wm":75,"mg":0,"co":0,"ap":0,"yco":0,"tot":184,"bb":0,"bs":0,"uo":4,"uw":17,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"4/2/2026","day":"Wed","rev":9370,"cash":5960,"exp":120,"net":5840,"scan":3410,"or":95,"wm":66,"mg":0,"co":0,"ap":0,"yco":0,"tot":161,"bb":0,"bs":0,"uo":3.5,"uw":15,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"5/2/2026","day":"Thu","rev":9690,"cash":3830,"exp":120,"net":3710,"scan":5860,"or":97,"wm":68,"mg":0,"co":0,"ap":0,"yco":0,"tot":165,"bb":0,"bs":0,"uo":3.5,"uw":16,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"6/2/2026","day":"Fri","rev":10890,"cash":6880,"exp":120,"net":6760,"scan":4010,"or":104,"wm":72,"mg":0,"co":0,"ap":0,"yco":0,"tot":176,"bb":0,"bs":0,"uo":4,"uw":17,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"7/2/2026","day":"Sat","rev":12360,"cash":4890,"exp":120,"net":4770,"scan":7470,"or":120,"wm":82,"mg":0,"co":0,"ap":0,"yco":0,"tot":202,"bb":0,"bs":0,"uo":4.5,"uw":19,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"8/2/2026","day":"Sun","rev":8750,"cash":5280,"exp":60,"net":5220,"scan":3470,"or":86,"wm":59,"mg":0,"co":0,"ap":0,"yco":0,"tot":145,"bb":0,"bs":0,"uo":3,"uw":14,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"9/2/2026","day":"Mon","rev":11100,"cash":6680,"exp":120,"net":6560,"scan":4420,"or":111,"wm":77,"mg":0,"co":0,"ap":0,"yco":0,"tot":188,"bb":0,"bs":0,"uo":4,"uw":18,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"10/2/2026","day":"Tue","rev":12785,"cash":7820,"exp":120,"net":7700,"scan":4965,"or":130,"wm":90,"mg":0,"co":0,"ap":0,"yco":0,"tot":220,"bb":0,"bs":0,"uo":4.5,"uw":20,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"11/2/2026","day":"Wed","rev":12350,"cash":7320,"exp":150,"net":7170,"scan":5030,"or":123,"wm":85,"mg":0,"co":0,"ap":0,"yco":0,"tot":208,"bb":0,"bs":0,"uo":4.5,"uw":19,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"12/2/2026","day":"Thu","rev":11820,"cash":8030,"exp":120,"net":7910,"scan":3790,"or":114,"wm":78,"mg":0,"co":0,"ap":0,"yco":0,"tot":192,"bb":0,"bs":0,"uo":4,"uw":18,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"13/2/2026","day":"Fri","rev":12670,"cash":7390,"exp":180,"net":7210,"scan":5280,"or":125,"wm":87,"mg":0,"co":0,"ap":0,"yco":0,"tot":212,"bb":0,"bs":0,"uo":4.5,"uw":20,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"14/2/2026","day":"Sat","rev":12320,"cash":6420,"exp":150,"net":6270,"scan":5900,"or":123,"wm":85,"mg":0,"co":0,"ap":0,"yco":0,"tot":208,"bb":0,"bs":0,"uo":4.5,"uw":19,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"15/2/2026","day":"Sun","rev":13410,"cash":7480,"exp":120,"net":7360,"scan":5930,"or":128,"wm":88,"mg":0,"co":0,"ap":0,"yco":0,"tot":216,"bb":0,"bs":0,"uo":4.5,"uw":20,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"16/2/2026","day":"Mon","rev":10380,"cash":6650,"exp":120,"net":6530,"scan":3730,"or":105,"wm":73,"mg":0,"co":0,"ap":0,"yco":0,"tot":178,"bb":0,"bs":0,"uo":3.5,"uw":16,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"17/2/2026","day":"Tue","rev":12720,"cash":7150,"exp":120,"net":7030,"scan":5570,"or":128,"wm":89,"mg":0,"co":0,"ap":0,"yco":0,"tot":217,"bb":0,"bs":0,"uo":4.5,"uw":20,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"18/2/2026","day":"Wed","rev":14600,"cash":10140,"exp":120,"net":10020,"scan":4460,"or":147,"wm":102,"mg":0,"co":0,"ap":0,"yco":0,"tot":249,"bb":0,"bs":0,"uo":5,"uw":23,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"19/2/2026","day":"Thu","rev":15420,"cash":8900,"exp":120,"net":8780,"scan":6520,"or":157,"wm":108,"mg":0,"co":0,"ap":0,"yco":0,"tot":265,"bb":0,"bs":0,"uo":5.5,"uw":24,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"20/2/2026","day":"Fri","rev":16750,"cash":10900,"exp":150,"net":10750,"scan":5850,"or":161,"wm":111,"mg":0,"co":0,"ap":0,"yco":0,"tot":272,"bb":0,"bs":0,"uo":6,"uw":25,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"21/2/2026","day":"Sat","rev":16630,"cash":9720,"exp":180,"net":9540,"scan":6910,"or":164,"wm":114,"mg":0,"co":0,"ap":0,"yco":0,"tot":278,"bb":0,"bs":0,"uo":6,"uw":25,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"22/2/2026","day":"Sun","rev":15820,"cash":10170,"exp":180,"net":9990,"scan":5650,"or":156,"wm":108,"mg":0,"co":0,"ap":0,"yco":0,"tot":264,"bb":0,"bs":0,"uo":5.5,"uw":24,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"23/2/2026","day":"Mon","rev":12730,"cash":7800,"exp":120,"net":7680,"scan":4930,"or":128,"wm":89,"mg":0,"co":0,"ap":0,"yco":0,"tot":217,"bb":0,"bs":0,"uo":4.5,"uw":20,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"24/2/2026","day":"Tue","rev":13320,"cash":7930,"exp":120,"net":7810,"scan":5390,"or":128,"wm":89,"mg":0,"co":0,"ap":0,"yco":0,"tot":217,"bb":0,"bs":0,"uo":4.5,"uw":20,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"25/2/2026","day":"Wed","rev":9560,"cash":6460,"exp":120,"net":6340,"scan":3100,"or":92,"wm":64,"mg":0,"co":0,"ap":0,"yco":0,"tot":156,"bb":0,"bs":0,"uo":3.5,"uw":14,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"26/2/2026","day":"Thu","rev":8280,"cash":5280,"exp":120,"net":5160,"scan":3000,"or":82,"wm":57,"mg":0,"co":0,"ap":0,"yco":0,"tot":139,"bb":0,"bs":0,"uo":3,"uw":13,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"27/2/2026","day":"Fri","rev":13325,"cash":5370,"exp":120,"net":5250,"scan":7955,"or":109,"wm":76,"mg":0,"co":0,"ap":0,"yco":0,"tot":185,"bb":0,"bs":0,"uo":4,"uw":17,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"28/2/2026","day":"Sat","rev":10500,"cash":4440,"exp":120,"net":4320,"scan":6060,"or":103,"wm":71,"mg":0,"co":0,"ap":0,"yco":0,"tot":174,"bb":0,"bs":0,"uo":4,"uw":16,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0}],"Mar26":[{"d":"01/03/2026","day":"Sun","rev":10130,"cash":4670,"exp":120,"net":4550,"scan":5460,"or":114,"wm":56,"mg":0,"co":0,"ap":0,"yco":0,"tot":170,"bb":1,"bs":0,"uo":4,"uw":14,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"02/03/2026","day":"Mon","rev":10590,"cash":7300,"exp":120,"net":7180,"scan":3290,"or":116,"wm":60,"mg":0,"co":0,"ap":0,"yco":0,"tot":176,"bb":2,"bs":0,"uo":4,"uw":15,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"03/03/2026","day":"Tue","rev":11600,"cash":6520,"exp":120,"net":6400,"scan":5080,"or":124,"wm":72,"mg":0,"co":0,"ap":0,"yco":0,"tot":196,"bb":2,"bs":0,"uo":4,"uw":18,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"04/03/2026","day":"Wed","rev":5350,"cash":3970,"exp":90,"net":3880,"scan":1380,"or":39,"wm":47,"mg":11,"co":0,"ap":0,"yco":0,"tot":97,"bb":0,"bs":0,"uo":1.5,"uw":11,"umg":22,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"05/03/2026","day":"Thu","rev":8760,"cash":4670,"exp":120,"net":4550,"scan":4090,"or":58,"wm":46,"mg":48,"co":0,"ap":0,"yco":0,"tot":152,"bb":0,"bs":0,"uo":2,"uw":11,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"06/03/2026","day":"Fri","rev":12790,"cash":7200,"exp":120,"net":7080,"scan":5590,"or":129,"wm":96,"mg":0,"co":0,"ap":0,"yco":0,"tot":225,"bb":0,"bs":0,"uo":4,"uw":23,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"07/03/2026","day":"Sat","rev":14495,"cash":2630,"exp":150,"net":2480,"scan":11865,"or":163,"wm":88,"mg":0,"co":0,"ap":0,"yco":0,"tot":251,"bb":0,"bs":0,"uo":5,"uw":22,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"08/03/2026","day":"Sun","rev":11370,"cash":4580,"exp":120,"net":4460,"scan":6790,"or":112,"wm":84,"mg":0,"co":0,"ap":0,"yco":0,"tot":196,"bb":1,"bs":0,"uo":4,"uw":29,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"09/03/2026","day":"Mon","rev":7750,"cash":5040,"exp":120,"net":4920,"scan":2710,"or":83,"wm":50,"mg":0,"co":0,"ap":0,"yco":0,"tot":133,"bb":0,"bs":0,"uo":3,"uw":12,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"10/03/2026","day":"Tue","rev":9760,"cash":5450,"exp":120,"net":5330,"scan":4310,"or":115,"wm":52,"mg":0,"co":0,"ap":0,"yco":0,"tot":167,"bb":0,"bs":0,"uo":4,"uw":13,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"11/03/2026","day":"Wed","rev":10310,"cash":5250,"exp":120,"net":5130,"scan":5060,"or":114,"wm":52,"mg":0,"co":0,"ap":0,"yco":0,"tot":166,"bb":3,"bs":0,"uo":4,"uw":13,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"12/03/2026","day":"Thu","rev":8570,"cash":4030,"exp":120,"net":3910,"scan":4540,"or":89,"wm":56,"mg":0,"co":0,"ap":0,"yco":0,"tot":145,"bb":1,"bs":0,"uo":3,"uw":14,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"13/03/2026","day":"Fri","rev":10070,"cash":5550,"exp":120,"net":5430,"scan":4520,"or":119,"wm":52,"mg":0,"co":0,"ap":0,"yco":0,"tot":171,"bb":0,"bs":0,"uo":4,"uw":13,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"14/03/2026","day":"Sat","rev":11030,"cash":4740,"exp":180,"net":4560,"scan":6290,"or":112,"wm":72,"mg":8,"co":0,"ap":0,"yco":0,"tot":192,"bb":0,"bs":0,"uo":3.5,"uw":18,"umg":26,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"15/03/2026","day":"Sun","rev":9790,"cash":4780,"exp":120,"net":4660,"scan":5010,"or":106,"wm":64,"mg":0,"co":0,"ap":0,"yco":0,"tot":170,"bb":0,"bs":0,"uo":4,"uw":17,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"16/03/2026","day":"Mon","rev":7630,"cash":3040,"exp":520,"net":2520,"scan":4590,"or":83,"wm":40,"mg":0,"co":0,"ap":0,"yco":0,"tot":123,"bb":2,"bs":0,"uo":3,"uw":10,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"17/03/2026","day":"Tue","rev":7310,"cash":4130,"exp":570,"net":3560,"scan":3180,"or":79,"wm":43,"mg":3,"co":0,"ap":0,"yco":0,"tot":125,"bb":0,"bs":0,"uo":2.5,"uw":10,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"18/03/2026","day":"Wed","rev":5520,"cash":2900,"exp":570,"net":2330,"scan":2620,"or":57,"wm":36,"mg":2,"co":0,"ap":0,"yco":0,"tot":95,"bb":0,"bs":0,"uo":2,"uw":9,"umg":4,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"19/03/2026","day":"Thu","rev":8730,"cash":4900,"exp":570,"net":4330,"scan":3830,"or":101,"wm":41,"mg":3,"co":0,"ap":0,"yco":0,"tot":145,"bb":1,"bs":0,"uo":3.5,"uw":11,"umg":6,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"20/03/2026","day":"Fri","rev":7920,"cash":4790,"exp":120,"net":4670,"scan":3130,"or":95,"wm":36,"mg":0,"co":0,"ap":0,"yco":0,"tot":131,"bb":1,"bs":0,"uo":2.5,"uw":9,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"21/03/2026","day":"Sat","rev":10480,"cash":6120,"exp":520,"net":5600,"scan":4360,"or":109,"wm":60,"mg":3,"co":2,"ap":7,"yco":0,"tot":181,"bb":0,"bs":0,"uo":3,"uw":15,"umg":6,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":4},{"d":"22/03/2026","day":"Sun","rev":9140,"cash":5250,"exp":520,"net":4730,"scan":3890,"or":111,"wm":34,"mg":8,"co":4,"ap":2,"yco":0,"tot":159,"bb":0,"bs":0,"uo":3,"uw":8,"umg":16,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":4},{"d":"23/03/2026","day":"Mon","rev":6210,"cash":1770,"exp":520,"net":1250,"scan":4440,"or":74,"wm":21,"mg":8,"co":4,"ap":0,"yco":0,"tot":107,"bb":0,"bs":0,"uo":2,"uw":6,"umg":16,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"24/03/2026","day":"Tue","rev":6520,"cash":3940,"exp":520,"net":3420,"scan":2580,"or":53,"wm":44,"mg":6,"co":9,"ap":0,"yco":0,"tot":112,"bb":0,"bs":0,"uo":1.5,"uw":11,"umg":12,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"25/03/2026","day":"Wed","rev":7240,"cash":4920,"exp":120,"net":4800,"scan":2320,"or":71,"wm":32,"mg":8,"co":12,"ap":0,"yco":0,"tot":123,"bb":0,"bs":0,"uo":2,"uw":8,"umg":16,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"26/03/2026","day":"Thu","rev":8150,"cash":4470,"exp":120,"net":4350,"scan":3680,"or":80,"wm":43,"mg":6,"co":11,"ap":1,"yco":0,"tot":141,"bb":0,"bs":0,"uo":2.5,"uw":10,"umg":12,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":2},{"d":"27/03/2026","day":"Fri","rev":9570,"cash":6250,"exp":120,"net":6130,"scan":3320,"or":75,"wm":69,"mg":9,"co":14,"ap":2,"yco":0,"tot":169,"bb":0,"bs":0,"uo":2,"uw":16,"umg":18,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":4},{"d":"28/03/2026","day":"Sat","rev":12110,"cash":6030,"exp":180,"net":5850,"scan":6080,"or":109,"wm":68,"mg":9,"co":16,"ap":2,"yco":0,"tot":204,"bb":0,"bs":0,"uo":3,"uw":12,"umg":18,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":4},{"d":"29/03/2026","day":"Sun","rev":9700,"cash":5730,"exp":120,"net":5610,"scan":3970,"or":96,"wm":45,"mg":8,"co":9,"ap":3,"yco":0,"tot":161,"bb":0,"bs":0,"uo":3.67,"uw":10,"umg":16,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":6},{"d":"30/03/2026","day":"Mon","rev":6960,"cash":4690,"exp":120,"net":4570,"scan":2270,"or":68,"wm":38,"mg":7,"co":6,"ap":0,"yco":0,"tot":119,"bb":0,"bs":0,"uo":2,"uw":9,"umg":14,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"31/03/2026","day":"Tue","rev":11370,"cash":6730,"exp":2180,"net":4550,"scan":4640,"or":104,"wm":38,"mg":9,"co":31,"ap":6,"yco":0,"tot":188,"bb":0,"bs":0,"uo":3,"uw":8,"umg":18,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":12}],"Apr26":[{"d":"Date","day":"Day","rev":0,"cash":0,"exp":0,"net":0,"scan":0,"or":0,"wm":0,"mg":0,"co":0,"ap":0,"yco":0,"tot":0,"bb":0,"bs":0,"uo":0,"uw":0,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0},{"d":"01/04/2026","day":"Wed","rev":10480,"cash":6300,"exp":120,"net":6180,"scan":4180,"or":92,"wm":46,"mg":6,"co":26,"ap":6,"yco":0,"tot":176,"bb":0,"bs":0,"uo":8,"uw":11,"umg":12,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":12},{"d":"02/04/2026","day":"Thu","rev":10770,"cash":6650,"exp":180,"net":6470,"scan":4120,"or":76,"wm":39,"mg":10,"co":40,"ap":12,"yco":0,"tot":177,"bb":0,"bs":0,"uo":7,"uw":9,"umg":20,"uco_meat":2,"uco_water":2,"uco_conden":1,"uco_raw":2,"uap":24},{"d":"03/04/2026","day":"Fri","rev":14620,"cash":9930,"exp":180,"net":9750,"scan":4690,"or":81,"wm":48,"mg":16,"co":73,"ap":15,"yco":0,"tot":233,"bb":0,"bs":0,"uo":7.5,"uw":11,"umg":0,"uco_meat":3,"uco_water":2,"uco_conden":1,"uco_raw":1,"uap":0},{"d":"04/04/2026","day":"Sat","rev":14328,"cash":7750,"exp":240,"net":7510,"scan":6578,"or":73,"wm":47,"mg":20,"co":71,"ap":17,"yco":0,"tot":228,"bb":0,"bs":0,"uo":7,"uw":11,"umg":40,"uco_meat":3,"uco_water":3,"uco_conden":2,"uco_raw":2,"uap":34},{"d":"05/04/2026","day":"Sun","rev":17200,"cash":9540,"exp":240,"net":9300,"scan":7660,"or":100,"wm":47,"mg":20,"co":73,"ap":17,"yco":0,"tot":268,"bb":0,"bs":0,"uo":0,"uw":11,"umg":0,"uco_meat":2,"uco_water":2,"uco_conden":1,"uco_raw":2,"uap":0},{"d":"06/04/2026","day":"Fri","rev":12610,"cash":8510,"exp":240,"net":12370,"scan":4100,"or":64,"wm":70,"mg":16,"co":42,"ap":8,"yco":0,"tot":200,"bb":0,"bs":0,"uo":2,"uw":17,"umg":32,"uco_meat":2,"uco_water":2,"uco_conden":1,"uco_raw":2,"uap":16},{"d":"07/04/2026","day":"Tue","rev":9600,"cash":6420,"exp":180,"net":6240,"scan":3180,"or":56,"wm":32,"mg":11,"co":35,"ap":9,"yco":9,"tot":152,"bb":0,"bs":0,"uo":1.5,"uw":11,"umg":22,"uco_meat":1,"uco_water":1,"uco_conden":1,"uco_raw":1,"uap":18},{"d":"08/04/2026","day":"Wed","rev":9060,"cash":6180,"exp":180,"net":6000,"scan":2880,"or":49,"wm":55,"mg":13,"co":25,"yco":5,"ap":6,"tot":148,"bb":0,"bs":0,"uo":0.5,"uw":17,"umg":26,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":12},{"d":"09/04/2026","day":"Thu","rev":8220,"cash":5090,"exp":120,"net":4970,"scan":3130,"or":64,"wm":37,"mg":2,"co":25,"ap":7,"yco":3,"tot":138,"bb":0,"bs":0,"uo":2,"uw":9,"umg":4,"uco_meat":1,"uco_water":1,"uco_conden":1,"uco_raw":1,"uap":14},{"d":"10/04/2026","day":"Fri","rev":14040,"cash":9150,"exp":240,"net":8910,"scan":4890,"or":58,"wm":63,"mg":11,"co":77,"ap":26,"yco":4,"tot":239,"bb":0,"bs":0,"uo":2,"uw":16,"umg":0,"uco_meat":2,"uco_water":2,"uco_conden":2,"uco_raw":2,"uap":0},{"d":"11/04/2026","day":"Sat","rev":16500,"cash":10860,"exp":180,"net":10700,"scan":5640,"or":60,"wm":85,"mg":17,"co":100,"ap":16,"yco":0,"tot":278,"bb":0,"bs":0,"uo":2,"uw":21,"umg":34,"uco_meat":3,"uco_water":3,"uco_conden":6,"uco_raw":6,"uap":32}],"May26":[{"d":"Date","day":"Day","rev":0,"cash":0,"exp":0,"net":0,"scan":0,"or":0,"wm":0,"mg":0,"co":0,"ap":0,"yco":0,"tot":0,"bb":0,"bs":0,"uo":0,"uw":0,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0}],"Jun26":[{"d":"Date","day":"Day","rev":0,"cash":0,"exp":0,"net":0,"scan":0,"or":0,"wm":0,"mg":0,"co":0,"ap":0,"yco":0,"tot":0,"bb":0,"bs":0,"uo":0,"uw":0,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0}],"Jul26":[{"d":"Date","day":"Day","rev":0,"cash":0,"exp":0,"net":0,"scan":0,"or":0,"wm":0,"mg":0,"co":0,"ap":0,"yco":0,"tot":0,"bb":0,"bs":0,"uo":0,"uw":0,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0}],"Aug26":[{"d":"Date","day":"Day","rev":0,"cash":0,"exp":0,"net":0,"scan":0,"or":0,"wm":0,"mg":0,"co":0,"ap":0,"yco":0,"tot":0,"bb":0,"bs":0,"uo":0,"uw":0,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0}],"Sep26":[{"d":"Date","day":"Day","rev":0,"cash":0,"exp":0,"net":0,"scan":0,"or":0,"wm":0,"mg":0,"co":0,"ap":0,"yco":0,"tot":0,"bb":0,"bs":0,"uo":0,"uw":0,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0}],"Oct26":[{"d":"Date","day":"Day","rev":0,"cash":0,"exp":0,"net":0,"scan":0,"or":0,"wm":0,"mg":0,"co":0,"ap":0,"yco":0,"tot":0,"bb":0,"bs":0,"uo":0,"uw":0,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0}],"Nov26":[{"d":"Date","day":"Day","rev":0,"cash":0,"exp":0,"net":0,"scan":0,"or":0,"wm":0,"mg":0,"co":0,"ap":0,"yco":0,"tot":0,"bb":0,"bs":0,"uo":0,"uw":0,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0}],"Dec26":[{"d":"Date","day":"Day","rev":0,"cash":0,"exp":0,"net":0,"scan":0,"or":0,"wm":0,"mg":0,"co":0,"ap":0,"yco":0,"tot":0,"bb":0,"bs":0,"uo":0,"uw":0,"umg":0,"uco_meat":0,"uco_water":0,"uco_conden":0,"uco_raw":0,"uap":0}]};
+
+let DATA = JSON.parse(JSON.stringify(BUILT_IN));
+let currentMonth = 'all';
+let charts = {};
+
+function fmt(n){return n.toLocaleString('en-US')}
+function sum(arr,k){return arr.reduce((s,r)=>s+(r[k]||0),0)}
+function avg(arr,k){return arr.length?sum(arr,k)/arr.length:0}
+
+function getMonthData(m){
+  if(m==='all') return [...DATA.Jan26,...DATA.Feb26,...DATA.Mar26,...DATA.Apr26];
+  return DATA[m]||[];
+}
+
+function renderTabs(){
+  const tabs=[{k:'all',l:'2026 Yearly'},{k:'Jan26',l:'January'},{k:'Feb26',l:'February'},{k:'Mar26',l:'March'},{k:'Apr26',l:'April'}];
+  document.getElementById('monthTabs').innerHTML=tabs.map(t=>
+    `<div class="tab ${t.k===currentMonth?'active':''}" onclick="switchMonth('${t.k}')">${t.l}</div>`
+  ).join('');
+}
+
+function renderKPIs(data){
+  const rev=sum(data,'rev'),cash=sum(data,'cash'),scan=sum(data,'scan'),exp=sum(data,'exp'),cups=sum(data,'tot');
+  const days=data.length, avgRev=days?rev/days:0, revPerCup=cups?rev/cups:0;
+  const cashPct=rev?((cash/rev)*100).toFixed(1):0;
+
+  // Fixed Costs calculation
+  const FIXED_COSTS_PER_MONTH = 66000;
+  const numMonths = currentMonth === 'all' ? 4 : 1; // Jan, Feb, Mar, Apr
+  const totalFixedCosts = numMonths * FIXED_COSTS_PER_MONTH;
+  const netMargin = rev - exp - totalFixedCosts;
+
+  const html=`
+    <div class="kpi"><div class="label">Total Revenue</div><div class="value">฿${fmt(rev)}</div><div class="unit">${days} days</div></div>
+    <div class="kpi green"><div class="label">Avg Revenue/Day</div><div class="value">฿${fmt(Math.round(avgRev))}</div></div>
+    <div class="kpi orange"><div class="label">Total Cash</div><div class="value">฿${fmt(cash)}</div><div class="unit">${cashPct}% of revenue</div></div>
+    <div class="kpi"><div class="label">Total Scan/Transfer</div><div class="value">฿${fmt(scan)}</div><div class="unit">${rev?(100-cashPct).toFixed(1):0}% of revenue</div></div>
+    <div class="kpi red"><div class="label">Total Expenses</div><div class="value">฿${fmt(exp)}</div><div class="unit">Avg ฿${fmt(Math.round(exp/days))}/day</div></div>
+    <div class="kpi green"><div class="label">Total Cups Sold</div><div class="value">${fmt(cups)}</div><div class="unit">Avg ${Math.round(cups/days)}/day</div></div>
+    <div class="kpi orange"><div class="label">Revenue per Cup</div><div class="value">฿${revPerCup.toFixed(1)}</div></div>
+    <div class="kpi" style="border-left: 4px solid var(--accent); background: #fff8f0;"><div class="label">Net Margin (Net Profit)</div><div class="value" style="color:var(--accent)">฿${fmt(netMargin)}</div><div class="unit">After ฿${fmt(totalFixedCosts)} fixed costs</div></div>
+  `;
+  document.getElementById('kpiGrid').innerHTML=html;
+}
+
+function destroyCharts(){Object.values(charts).forEach(c=>{if(c)c.destroy()});charts={}}
+
+function renderCharts(data){
+  destroyCharts();
+  const labels=data.map(r=>r.d);
+  const colors={primary:'#1f4e79',accent:'#ff6600',green:'#2e7d32',red:'#c62828',blue:'#1976d2',purple:'#7b1fa2',teal:'#00796b'};
+
+  charts.rev=new Chart(document.getElementById('chartRevenue'),{
+    type:'line',
+    data:{labels,datasets:[
+      {label:'Revenue',data:data.map(r=>r.rev),borderColor:colors.primary,backgroundColor:'rgba(31,78,121,.1)',fill:true,tension:.3,pointRadius:1.5},
+      {label:'Cash',data:data.map(r=>r.cash),borderColor:colors.green,borderDash:[4,4],tension:.3,pointRadius:0},
+      {label:'Scan',data:data.map(r=>r.scan),borderColor:colors.accent,borderDash:[4,4],tension:.3,pointRadius:0}
+    ]},
+    options:{responsive:true,plugins:{legend:{position:'bottom',labels:{boxWidth:12}}},scales:{y:{beginAtZero:true,ticks:{callback:v=>'฿'+v.toLocaleString()}},x:{ticks:{maxTicksToShow:15,maxRotation:45}}}}
+  });
+
+  const cashT=sum(data,'cash'),scanT=sum(data,'scan');
+  charts.pay=new Chart(document.getElementById('chartPayment'),{
+    type:'doughnut',
+    data:{labels:['Cash','Scan/Transfer'],datasets:[{data:[cashT,scanT],backgroundColor:[colors.green,colors.blue],borderWidth:2}]},
+    options:{responsive:true,plugins:{legend:{position:'bottom'}}}
+  });
+
+  const cupData=[sum(data,'or'),sum(data,'wm'),sum(data,'mg'),sum(data,'co'),sum(data,'yco'),sum(data,'ap')];
+  const cupLabels=['Orange','Watermelon','Mango','Coconut','Young Coconut','Apple'];
+  const cupColors=['#ff9800','#4caf50','#ffc107','#795548','#a5d6a7','#f44336'];
+  charts.cups=new Chart(document.getElementById('chartCups'),{
+    type:'bar',
+    data:{labels:cupLabels,datasets:[{label:'Cups Sold',data:cupData,backgroundColor:cupColors}]},
+    options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}
+  });
+
+  charts.used=new Chart(document.getElementById('chartUsed'),{
+    type:'bar',
+    data:{labels,datasets:[
+      {label:'Orange (baskets)',data:data.map(r=>r.uo),backgroundColor:'rgba(255,152,0,.7)'},
+      {label:'Watermelon (pcs)',data:data.map(r=>r.uw),backgroundColor:'rgba(76,175,80,.7)'},
+      {label:'Coconut Meat',data:data.map(r=>r.uco_meat||0),backgroundColor:'rgba(121,95,72,.7)'},
+      {label:'Coconut Water',data:data.map(r=>r.uco_water||0),backgroundColor:'rgba(156,137,120,.7)'},
+      {label:'Coconut Conden',data:data.map(r=>r.uco_conden||0),backgroundColor:'rgba(141,110,99,.7)'},
+      {label:'Coconut Raw',data:data.map(r=>r.uco_raw||0),backgroundColor:'rgba(188,170,156,.7)'}
+    ]},
+    options:{responsive:true,plugins:{legend:{position:'bottom',labels:{boxWidth:12}}},scales:{y:{beginAtZero:true},x:{ticks:{maxRotation:45}}}}
+  });
+}
+
+function renderTable(data){
+  const hdr=['Date','Day','Revenue','Cash','Expenses','Scan','Orange','Watermelon','Mango','Coconut','Young Coconut','Apple','Total Cups','Bot Big','Used Or.','Used WM','UCO Meat','UCO Water','UCO Conden','UCO Raw'];
+  document.getElementById('tHead').innerHTML='<tr>'+hdr.map(h=>`<th>${h}</th>`).join('')+'</tr>';
+  let rows=data.map(r=>`<tr>
+    <td>${r.d}</td><td>${r.day}</td><td>${fmt(r.rev)}</td><td>${fmt(r.cash)}</td><td>${fmt(r.exp)}</td><td>${fmt(r.scan)}</td>
+    <td>${r.or}</td><td>${r.wm}</td><td>${r.mg}</td><td>${r.co}</td><td>${r.yco||0}</td><td>${r.ap}</td><td><b>${r.tot}</b></td><td>${r.bb}</td><td>${r.uo}</td><td>${r.uw}</td><td>${r.uco_meat||0}</td><td>${r.uco_water||0}</td><td>${r.uco_conden||0}</td><td>${r.uco_raw||0}</td>
+  </tr>`).join('');
+  // Total row
+  const t=k=>sum(data,k);
+  rows+=`<tr class="total-row"><td>TOTAL</td><td>${data.length}d</td><td>${fmt(t('rev'))}</td><td>${fmt(t('cash'))}</td><td>${fmt(t('exp'))}</td><td>${fmt(t('scan'))}</td>
+    <td>${fmt(t('or'))}</td><td>${fmt(t('wm'))}</td><td>${fmt(t('mg'))}</td><td>${fmt(t('co'))}</td><td>${fmt(t('ap'))}</td><td><b>${fmt(t('tot'))}</b></td><td>${t('bb')}</td><td>${t('uo').toFixed(1)}</td><td>${t('uw')}</td><td>${t('uco_meat')}</td><td>${t('uco_water')}</td><td>${t('uco_conden')}</td><td>${t('uco_raw')}</td></tr>`;
+  document.getElementById('tBody').innerHTML=rows;
+}
+
+function switchMonth(m){
+  currentMonth=m;
+  const data=getMonthData(m);
+  renderTabs();renderKPIs(data);renderCharts(data);renderTable(data);
+  const names={all:'2026 Summary',Jan26:'January 2026',Feb26:'February 2026',Mar26:'March 2026',Apr26:'April 2026'};
+  document.getElementById('tableTitle').textContent='Daily Detail - '+names[m];
+}
+
+// ── FILE UPLOAD ─────────────────────────────────────────────────────────────
+function parseXLSX(file){
+  const reader=new FileReader();
+  reader.onload=function(e){
+    try{
+      const wb=XLSX.read(e.target.result,{type:'array'});
+      const newData={};
+      wb.SheetNames.forEach(sn=>{
+        const key=sn.replace(/\s/g,'');
+        if(!['Jan26','Feb26','Mar26','Apr26'].includes(key))return;
+        const ws=wb.Sheets[sn];
+        const json=XLSX.utils.sheet_to_json(ws,{header:1,defval:0});
+        const rows=[];
+        for(let i=3;i<json.length;i++){
+          const r=json[i];
+          if(!r||!r[0]||String(r[0]).toUpperCase()==='TOTAL'||String(r[0]).toUpperCase()==='AVG/DAY')continue;
+          rows.push({d:String(r[0]),day:String(r[1]||''),rev:Number(r[2])||0,cash:Number(r[3])||0,exp:Number(r[4])||0,scan:Number(r[6])||0,
+            or:Number(r[7])||0,wm:Number(r[8])||0,mg:Number(r[9])||0,co:Number(r[10])||0,ap:Number(r[11])||0,tot:Number(r[12])||0,
+            bb:Number(r[13])||0,bs:Number(r[14])||0,uo:Number(r[15])||0,uw:Number(r[16])||0});
+        }
+        if(rows.length) newData[key]=rows;
+      });
+      if(Object.keys(newData).length){
+        Object.assign(DATA,newData);
+        document.getElementById('statusBar').textContent='✅ Data updated from: '+file.name+' ('+new Date().toLocaleString()+')';
+        document.getElementById('statusBar').style.background='#e8f5e9';
+        switchMonth(currentMonth);
+      } else {
+        document.getElementById('statusBar').textContent='⚠️ No matching sheets found (expecting Jan26, Feb26, Mar26, Apr26)';
+        document.getElementById('statusBar').style.background='#fff3e0';
+      }
+    }catch(err){
+      document.getElementById('statusBar').textContent='❌ Error reading file: '+err.message;
+      document.getElementById('statusBar').style.background='#fce4ec';
+    }
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+function handleFile(file){
+  if(!file)return;
+  if(file.name.endsWith('.csv')){
+    document.getElementById('statusBar').textContent='CSV support: please use .xlsx format for full dashboard update';
+    document.getElementById('statusBar').style.background='#fff3e0';
+    return;
+  }
+  parseXLSX(file);
+}
+
+const dz=document.getElementById('dropZone');
+dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('dragover')});
+dz.addEventListener('dragleave',()=>dz.classList.remove('dragover'));
+dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('dragover');handleFile(e.dataTransfer.files[0])});
+document.getElementById('fileInput').addEventListener('change',e=>handleFile(e.target.files[0]));
+
+// ── INIT ────────────────────────────────────────────────────────────────────
+switchMonth('all');
+</script>
+</body>
+</html>
