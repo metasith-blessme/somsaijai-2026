@@ -350,67 +350,64 @@ function renderKPIs(sales, expenses) {
 
 function renderFinance(sales, expenses) {
     const rev = sum(sales, 'rev');
-    const dailyExp = sum(sales, 'exp');
     
-    // COGS: Direct materials + Variable Ops (Ice/Pkg/Transport)
-    const cogsCats = ['Orange', 'Watermelon', 'Apple/Melon', 'Mango', 'Coconut', 'Ice', 'Packaging', 'Transportation'];
-    const totalCOGS = expenses.filter(e => cogsCats.includes(e.cat)).reduce((sum, e) => sum + e.amt, 0);
-    
-    const gp = rev - totalCOGS;
-    const opex = expenses.filter(e => !cogsCats.includes(e.cat) && e.cat !== 'Investment').reduce((sum, e) => sum + e.amt, 0);
-    
-    // Fixed Costs (Dynamic based on selected branch/month)
-    let totalFixed = 0;
-    const activeBranches = currentBranch === 'all' ? ['B1', 'B2'] : [currentBranch];
-    activeBranches.forEach(b => {
-        // Only add fixed costs if there is sales data for the selected month
-        if (sales.some(s => s.branch === b)) {
-            totalFixed += PARAMS.fixedCosts[b];
-        }
+    // 1. Calculate Costs per Branch based on Actual Usage & Shared Expenses
+    let summaryRows = [];
+    let branchCalculations = {};
+
+    ['B1', 'B2'].forEach(b => {
+        const bSales = sales.filter(s => s.branch === b);
+        if (bSales.length === 0) return;
+
+        const bRev = sum(bSales, 'rev');
+        // Actual Usage Cost: daily fruit counts * unit cost
+        const bUsage = bSales.reduce((s, r) => s + (
+            (r.uo||0)*700 + (r.uw||0)*35 + (r.uap||0)*30 + (r.umg||0)*150 + (r.uco_raw||0)*35
+        ), 0);
+        
+        const days = bSales.length;
+        const bFixed = PARAMS.rent[b] + PARAMS.staffMonthly[b] + (days * PARAMS.staffPerDay[b]) + PARAMS.fixedStock[b];
+        const bNet = bRev - bUsage - bFixed;
+        const bShare = Math.max(0, bNet * PARAMS.profitShare[b]);
+
+        branchCalculations[b] = { rev: bRev, usage: bUsage, fixed: bFixed, net: bNet, share: bShare, days: days };
     });
 
-    const ebitda = gp - opex - totalFixed;
-    const netMargin = rev > 0 ? (ebitda / rev * 100) : 0;
+    const totalRev = Object.values(branchCalculations).reduce((s, b) => s + b.rev, 0);
+    const totalUsage = Object.values(branchCalculations).reduce((s, b) => s + b.usage, 0);
+    const totalFixed = Object.values(branchCalculations).reduce((s, b) => s + b.fixed, 0);
+    const totalNet = totalRev - totalUsage - totalFixed;
 
     const rows = [
-        { l: '<b>Revenue (ยอดขาย)</b>', a: rev, b:true },
-        { l: 'COGS (ต้นทุนวัตถุดิบ)', a: totalCOGS },
-        { l: '<b>Gross Profit (GP)</b>', a: gp, b:true },
-        { l: 'OPEX (ค่าใช้จ่ายดำเนินงาน)', a: opex },
-        { l: 'Fixed Costs (ค่าเช่า/พนักงาน)', a: totalFixed },
-        { l: '<b>EBITDA (กำไรก่อนหักค่าเสื่อม)</b>', a: ebitda, b:true },
-        { l: '<b>Net Margin (%)</b>', a: netMargin, i: true }
+        { l: '<b>Revenue (ยอดขายรวม)</b>', a: totalRev, b:true },
+        { l: 'Actual Materials Cost (ต้นทุนวัตถุดิบที่ใช้จริง)', a: totalUsage },
+        { l: '<b>Gross Profit (GP)</b>', a: totalRev - totalUsage, b:true },
+        { l: 'Fixed Costs (ค่าเช่า/พนักงาน/สต็อก)', a: totalFixed },
+        { l: '<b>EBITDA (กำไรเบื้องต้น)</b>', a: totalNet, b:true },
+        { l: '<b>Net Margin (%)</b>', a: totalRev > 0 ? (totalNet/totalRev*100) : 0, i: true }
     ];
 
     document.getElementById('cfBody').innerHTML = rows.map(r => `
         <tr class="${r.b?'bold':''} ${r.i?'italic':''}">
             <td>${r.l}</td>
-            <td>${r.i ? 'Profitability Efficiency' : ''}</td>
+            <td>${r.i ? 'Business Efficiency' : ''}</td>
             <td class="num">${r.i ? '' : '฿' + fmt(r.a)}</td>
-            <td class="num">${r.i ? r.a.toFixed(1) + '%' : (rev ? (r.a/rev*100).toFixed(1) + '%' : '0%')}</td>
+            <td class="num">${r.i ? r.a.toFixed(1) + '%' : (totalRev ? (r.a/totalRev*100).toFixed(1) + '%' : '0%')}</td>
         </tr>
     `).join('');
 
     // Profit Sharing Breakdown
     let sharingHtml = '';
     let totalBlessme = 0;
-    activeBranches.forEach(b => {
-        const bSales = sales.filter(s => s.branch === b);
-        if (bSales.length === 0) return;
-
-        const bRev = sum(bSales, 'rev');
-        const bUsage = bSales.reduce((s, r) => s + ((r.uo||0)*700 + (r.uw||0)*35 + (r.uap||0)*30 + (r.umg||0)*150 + (r.uco_raw||0)*35), 0);
-        const bFixed = PARAMS.fixedCosts[b];
-        const bNet = bRev - bUsage - bFixed;
-        const bShare = Math.max(0, bNet * PARAMS.profitShare[b]);
-        totalBlessme += bShare;
-
+    Object.keys(branchCalculations).forEach(b => {
+        const calc = branchCalculations[b];
+        totalBlessme += calc.share;
         sharingHtml += `
             <tr>
-                <td>${b === 'B1' ? 'Branch 1' : 'Branch 2'}</td>
-                <td>฿${fmt(bNet)}</td>
+                <td>${b === 'B1' ? 'Branch 1' : 'Branch 2'} (${calc.days} days)</td>
+                <td>฿${fmt(calc.net)}</td>
                 <td>${PARAMS.profitShare[b]*100}%</td>
-                <td class="num"><b>฿${fmt(bShare)}</b></td>
+                <td class="num"><b>฿${fmt(calc.share)}</b></td>
             </tr>
         `;
     });
@@ -616,9 +613,21 @@ function renderLog(sales) {
 const PARAMS = {
     prices: { orange: 60, orange_premium: 100, watermelon: 50, apple: 60, mango: 90, coconut: 60, young: 90, guava: 60 },
     costs: { orange: 700, watermelon: 35, apple: 30, mango: 150, coconut: 35, young: 50, guava: 30 },
-    fixedCosts: {
-        B1: 56000,
-        B2: 54000 // 30,000 Rent + (800 * 30 Staff)
+    rent: {
+        B1: 35000,
+        B2: 30000
+    },
+    staffMonthly: {
+        B1: 31000, // 19,000 + 12,000
+        B2: 0
+    },
+    staffPerDay: {
+        B1: 0,
+        B2: 800 // 400 per day per staff (2 staff)
+    },
+    fixedStock: {
+        B1: 6000,
+        B2: 6000
     },
     profitShare: {
         B1: 0.60,

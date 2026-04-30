@@ -1,12 +1,24 @@
-# Ignore everything except the dashboard files
-*
-!index.html
-!data.json
-!stock_ledger.json
-!Sales_System_Automation/
-
-# Ignore system files
-.DS_Store
+# Standard Vercel Ignore
 node_modules
-.vercel
+.DS_Store
 *.log
+*.xlsx
+*.js
+*.swift
+ocr_bin
+DASHBOARD_SETUP.md
+DATA_EXTRACTION_GUIDE.txt
+Feb26_EXTRACTION_GUIDE.md
+MANIFEST.txt
+PROJECT_SUMMARY.txt
+README_FEB26_EXTRACTION.txt
+START_HERE.txt
+Somsaijai Sales Dashboard Automation Workflow.md
+chat.md
+test.txt
+package-lock.json
+package.json
+pending_verification.json
+.git
+.gitignore
+.surgeignore
